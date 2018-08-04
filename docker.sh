@@ -1,7 +1,7 @@
 #!/bin/sh
 
-container=server-java9
-image=frolvlad/alpine-glibc:latest
+container=centos-java9
+image=centos:latest
 
 function docker_init() {
   docker run -d \
@@ -12,7 +12,7 @@ function docker_init() {
 }
 
 if [ $# -eq 0 ];then
-  set -- /bin/sh
+  set -- /bin/bash
 fi
 
 status=`docker inspect --format '{{.State.Status}}' $container 2>/dev/null`
